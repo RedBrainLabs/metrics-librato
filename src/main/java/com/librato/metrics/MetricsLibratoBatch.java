@@ -30,7 +30,7 @@ public class MetricsLibratoBatch extends LibratoBatch {
         BufferedReader b = null;
         String version = "unknown";
         try {
-            pomIs = LibratoReporter.class.getClassLoader().getResourceAsStream("META-INF/maven/com.librato.metrics/metrics-librato/pom.properties");
+            pomIs = LibratoReporter.class.getClassLoader().getResourceAsStream("META-INF/maven/rbl/metrics-librato/pom.properties");
             b = new BufferedReader(new InputStreamReader(pomIs));
             String line = b.readLine();
             while (line != null)  {
