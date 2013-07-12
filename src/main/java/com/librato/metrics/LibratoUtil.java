@@ -47,7 +47,8 @@ public class LibratoUtil {
         batch.addGaugeMeasurement("jvm.daemon_thread_count", vm.daemonThreadCount());
         batch.addGaugeMeasurement("jvm.thread_count", vm.threadCount());
         batch.addGaugeMeasurement("jvm.uptime", vm.uptime());
-        batch.addGaugeMeasurement("jvm.fd_usage", vm.fileDescriptorUsage());
+        // This call hangs on Windows with java 1.7 (I haven't tested other versions)
+        //batch.addGaugeMeasurement("jvm.fd_usage", vm.fileDescriptorUsage());
 
         for (Map.Entry<Thread.State, Double> entry : vm.threadStatePercentages().entrySet()) {
             batch.addGaugeMeasurement("jvm.thread-states." + entry.getKey().toString().toLowerCase(), entry.getValue());
